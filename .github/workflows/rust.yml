@@ -21,4 +21,4 @@ jobs:
       run: cargo test --verbose
     - name: Run
       working-directory: src/
-      run: cargo run --verbose
+      run: cargo run --verbose Berlin DE
