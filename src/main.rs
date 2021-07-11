@@ -1,4 +1,4 @@
-use structopt::StructOpt; //parses cmd for us
+use structopt::StructOpt;
 use exitfailure::{ExitFailure};
 use serde_derive::{Deserialize, Serialize};
 use reqwest:: Url;
@@ -94,6 +94,6 @@ async fn main() -> Result<(), ExitFailure>{
     let args = Cli::from_args(); //parse and put it in args
 	let response :Forecast = Forecast::get(&args.city, &args.country_code).await?;
 
-	println!("our city: {} our country code {}, Humidity: {}%", args.city, args.country_code, response.main.humidity);
+	println!("our city: {} our country code {}, Humidity: {}%, Feels Like: {}, Minimum Temperature: {}, Maximum Temperature: {}", args.city, args.country_code, response.main.humidity, response.main.feels_like, response.main.temp_max, response.main.temp_min);
 	Ok(())
 }
