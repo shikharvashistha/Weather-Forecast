@@ -76,7 +76,7 @@ struct Sys {
 }
 
 impl Forecast {
-    async fn get(city: &String, country_code: &String) -> Result<Self, ExitFailure> {
+    async fn get(city: &str, country_code: &str) -> Result<Self, ExitFailure> {
         let url=format!("http://api.openweathermap.org/data/2.5/weather?q={},{}&appid=d58a6b151ec9cb168b083662ad0ceb53", city, country_code);
         let url: Url = Url::parse(&*url)?;
 
